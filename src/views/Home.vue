@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
 	name: "Home",
 	components: {},
+	computed: {
+		...mapGetters(["getAllGames"]),
+	},
+	methods: {
+		...mapActions(["fetchGames"]),
+	},
+	mounted() {
+		this.fetchGames();
+	},
 };
 </script>
