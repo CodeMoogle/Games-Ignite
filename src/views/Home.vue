@@ -12,6 +12,28 @@
 				/>
 			</div>
 		</div>
+
+		<div class="games-list">
+			<h2 class="games-list__title">New Games</h2>
+			<div class="games-list__content">
+				<GameCard
+					v-for="game in getAllGames.newGames"
+					:key="game.id"
+					:game="game"
+				/>
+			</div>
+		</div>
+
+		<div class="games-list">
+			<h2 class="games-list__title">Most Popular</h2>
+			<div class="games-list__content">
+				<GameCard
+					v-for="game in getAllGames.popularGames"
+					:key="game.id"
+					:game="game"
+				/>
+			</div>
+		</div>
 	</div>
 </template>
 

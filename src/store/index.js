@@ -12,12 +12,16 @@ export default new Vuex.Store({
 		popularGames: [],
 		upcomingGames: [],
 		searchedGames: [],
+		gameDetails: null,
 	},
 	mutations: {
 		fetchGames(state, payload) {
-			state.newGames = [...state.newGames, ...payload.newGames]
-			state.popularGames = [...state.popularGames, ...payload.popularGames]
-			state.upcomingGames = [...state.upcomingGames, ...payload.upcomingGames]
+			state.newGames = payload.newGames
+			state.popularGames = payload.popularGames
+			state.upcomingGames = payload.upcomingGames
+		},
+		fetchGameDetails(state, payload) {
+			state.gameDetails = payload
 		},
 	},
 	actions: {
@@ -27,6 +31,9 @@ export default new Vuex.Store({
 			const upcomingGames = await axios.get(games_url.upcoming()).then(res => res.data.results)
 
 			commit('fetchGames', { newGames, popularGames, upcomingGames })
+		},
+		async fetchGameDetails({ commit }, id) {
+			await axios.get(games_url.gameDetails(id)).then(res => commit('fetchGameDetails', res.data))
 		},
 	},
 	getters: {

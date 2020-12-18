@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	&::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #a9a9a9;
+	}
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #333;
+}
+
+h2 {
+	font-size: 1.8rem;
+}
+
+h3 {
+	padding: 0.5rem 0;
+}
+
+a {
+	text-decoration: none;
+}
