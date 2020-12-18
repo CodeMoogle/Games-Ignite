@@ -11,4 +11,5 @@ export const games_url = {
 	new: () => `${BASE_URL}${NEW_GAMES_URL}`,
 	upcoming: () => `${BASE_URL}${UPCOMING_GAMES_URL}`,
 	gameDetails: game_id => `${BASE_URL}games/${game_id}`,
+	gameScreenshots: game_id => `${BASE_URL}games/${game_id}/screenshots`,
 }

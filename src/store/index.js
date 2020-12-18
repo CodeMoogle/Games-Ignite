@@ -33,10 +33,14 @@ export default new Vuex.Store({
 			commit('fetchGames', { newGames, popularGames, upcomingGames })
 		},
 		async fetchGameDetails({ commit }, id) {
-			await axios.get(games_url.gameDetails(id)).then(res => commit('fetchGameDetails', res.data))
+			const details = await axios.get(games_url.gameDetails(id)).then(res => res.data)
+			const screenshots = await axios.get(games_url.gameScreenshots(id)).then(res => res.data.results)
+
+			commit('fetchGameDetails', { ...details, screenshots })
 		},
 	},
 	getters: {
 		getAllGames: state => state,
+		gameDetails: state => state.gameDetails,
 	},
 })

@@ -13,7 +13,7 @@
 			</div>
 		</div>
 
-		<div class="games-list">
+		<!-- <div class="games-list">
 			<h2 class="games-list__title">New Games</h2>
 			<div class="games-list__content">
 				<GameCard
@@ -33,7 +33,7 @@
 					:game="game"
 				/>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </template>
 

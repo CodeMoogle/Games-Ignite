@@ -1,5 +1,5 @@
 <template>
-	<div class="game-card" @click="fetchGameDetails(game.id)">
+	<router-link :to="{ path: `/games/${game.id}` }" class="game-card">
 		<img :src="game.background_image" :alt="game.name" />
 		<div class="game-card__content">
 			<h3>{{ game.name }}</h3>
@@ -7,12 +7,10 @@
 				Release date: {{ game.released || "TBA" }}
 			</p>
 		</div>
-	</div>
+	</router-link>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
 export default {
 	name: "GameCard",
 	props: {
@@ -20,9 +18,6 @@ export default {
 			type: Object,
 			required: true,
 		},
-	},
-	methods: {
-		...mapActions(["fetchGameDetails"]),
 	},
 };
 </script>
@@ -43,6 +38,10 @@ export default {
 		&__content {
 			padding: 0.5rem 1rem;
 			text-align: center;
+
+			& h3 {
+				padding-top: 0;
+			}
 
 			&-release {
 				color: #696969;
