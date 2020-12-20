@@ -1,6 +1,6 @@
 <template>
 	<router-link :to="{ path: `/games/${game.id}` }" class="game-card">
-		<img :src="game.background_image" :alt="game.name" />
+		<img :src="getPoster(game.background_image)" :alt="game.name" />
 		<div class="game-card__content">
 			<h3>{{ game.name }}</h3>
 			<p class="game-card__content-release">
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { getSmallerImg } from "@/utils/game.js";
+
 export default {
 	name: "GameCard",
 	props: {
@@ -18,6 +20,9 @@ export default {
 			type: Object,
 			required: true,
 		},
+	},
+	methods: {
+		getPoster: (path) => getSmallerImg(path),
 	},
 };
 </script>
