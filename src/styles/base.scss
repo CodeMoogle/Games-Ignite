@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
+:root {
+	--bg-primary: #151515;
+	--bg-secondary: #202020;
+
+	--text-primary: #ffffff;
+	--text-secondary: #737373;
+	--text-accent: #000000;
+
+	--hover-primary: #ffffff;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -17,7 +28,8 @@ html {
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	color: #333;
+	color: var(--text-primary);
+	background: var(--bg-primary);
 }
 
 h2 {
