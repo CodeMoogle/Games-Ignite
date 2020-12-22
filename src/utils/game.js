@@ -14,6 +14,8 @@ export const getPlatformImg = platform => {
 		return 'fab fa-xbox'
 	} else if (platform === 'pc') {
 		return 'fab fa-windows'
+	} else if (platform === 'ios' || platform === 'mac' || platform === 'macos') {
+		return 'fab fa-apple'
 	} else {
 		return 'fas fa-gamepad'
 	}

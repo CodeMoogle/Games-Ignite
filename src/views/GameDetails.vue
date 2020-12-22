@@ -8,9 +8,9 @@
 		></div>
 		<div class="game-details__info">
 			<div class="info__header">
-				<h2>{{ this.gameDetails.name }}</h2>
+				<h2 class="header-title">{{ this.gameDetails.name }}</h2>
 
-				<div class="info__parent-platforms">
+				<div class="header__parent-platforms">
 					<i
 						v-for="platform in this.gameDetails.parent_platforms"
 						:key="platform.id"
@@ -18,16 +18,23 @@
 					></i>
 				</div>
 
-				<p>Rating: {{ this.gameDetails.rating }}</p>
+				<span class="header__release">
+					{{ this.gameDetails.released }}
+				</span>
+
+				<p class="header__rating">
+					Rating: {{ this.gameDetails.rating || `N/A` }}
+				</p>
 			</div>
 
+			<h3>About</h3>
 			<div class="info__description">
 				<p>{{ this.gameDetails.description_raw }}</p>
 			</div>
 
 			<!-- TODO: platfroms component -->
+			<h3>Platforms</h3>
 			<div class="platforms">
-				Platforms:
 				<span
 					class="platforms__item"
 					v-for="platform in this.gameDetails.platforms"
@@ -38,6 +45,7 @@
 				</span>
 			</div>
 
+			<h3>Screenshots</h3>
 			<div class="info__gallery">
 				<img
 					v-for="screenshot in this.gameDetails.screenshots"
@@ -74,6 +82,14 @@ export default {
 		position: relative;
 		width: 100%;
 		min-height: 100vh;
+		& h2 {
+			font-size: 4rem;
+		}
+		& h3 {
+			font-size: 2rem;
+			padding: 0;
+			margin-bottom: 1rem;
+		}
 
 		&__art {
 			position: absolute;
@@ -92,21 +108,53 @@ export default {
 			position: relative;
 			width: 100%;
 			min-height: 100vh;
-			color: #fff;
+			color: var(--text-primary);
 			padding: 1rem;
 			z-index: 10;
 			& img {
+				display: block;
 				width: 100%;
 			}
 
 			.info {
-				&__parent-platforms {
+				&__header {
+					width: 100%;
+					height: 500px;
 					display: flex;
-					align-items: center;
-					font-size: 1.5rem;
-					& i {
-						margin-right: 0.5rem;
+					flex-direction: column;
+					align-items: flex-start;
+					font-size: 1.3rem;
+					.header {
+						&-title {
+							margin: 1rem 0;
+						}
+						&__parent-platforms {
+							display: flex;
+							align-items: center;
+							// font-size: 2rem;
+							margin: 1rem 0;
+							& i {
+								margin-right: 0.5rem;
+							}
+						}
+						&__release {
+							padding: 5px 10px;
+							background-color: #fff;
+							color: var(--text-accent);
+							border-radius: 0.5rem;
+							font-weight: bold;
+							margin: 1rem 0;
+						}
+						&__rating {
+							margin: 1rem 0;
+						}
 					}
+				}
+
+				&__description {
+					font-size: 1.1rem;
+					line-height: 1.5;
+					margin-bottom: 2rem;
 				}
 
 				&__gallery {
@@ -120,19 +168,24 @@ export default {
 	}
 
 	.platforms {
-		margin: 1rem 0;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-bottom: 2rem;
 		&__item {
-			padding: 5px 10px;
+			width: 150px;
+			text-align: center;
+			padding: 5px;
 			background-color: #fff;
 			color: var(--text-accent);
-			border: 1px solid var(--bg-secondary);
 			border-radius: 0.5rem;
 			font-weight: bold;
-			margin-right: 0.5rem;
-			font-size: 0.8rem;
+			font-size: 0.9rem;
+			margin: 0.5rem 0.5rem 0.5rem 0;
 			& i {
 				margin-right: 0.5rem;
-				font-size: 1rem;
+				font-size: 1.1rem;
 				vertical-align: middle;
 			}
 		}
