@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss">
 	.games-list {
-		padding: 0 2rem;
+		padding: 2rem;
 		min-height: 80vh;
 		&__title {
 			padding: 2rem 0;
