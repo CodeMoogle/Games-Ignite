@@ -70,7 +70,7 @@ export default {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 			grid-column-gap: 2rem;
-			grid-row-gap: 3rem;
+			grid-row-gap: 2rem;
 		}
 	}
 </style>
