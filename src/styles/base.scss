@@ -7,6 +7,7 @@
 	--text-primary: #ffffff;
 	--text-secondary: #737373;
 	--text-accent: #000000;
+	--text-themed: #ff7a00;
 
 	--hover-primary: #ffffff;
 }
@@ -19,7 +20,8 @@
 
 html {
 	&::-webkit-scrollbar {
-		width: 0.5rem;
+		width: 0.2rem;
+		background-color: var(--bg-secondary);
 	}
 	&::-webkit-scrollbar-thumb {
 		background-color: #a9a9a9;
@@ -42,4 +44,10 @@ h3 {
 
 a {
 	text-decoration: none;
+}
+
+.text_themed {
+	background: -webkit-linear-gradient(#ffdc99, #ff7a00);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }

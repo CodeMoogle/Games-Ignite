@@ -28,7 +28,8 @@ export default {
 	},
 	computed: {
 		releaseDate() {
-			return this.game.released.split("-").reverse().join("-");
+			if (this.game.released)
+				return this.game.released.split("-").reverse().join("-");
 		},
 	},
 	methods: {

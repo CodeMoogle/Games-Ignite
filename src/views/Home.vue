@@ -1,7 +1,5 @@
 <template>
 	<div class="home">
-		<h1>Games-Ignite</h1>
-
 		<div class="games-list">
 			<h2 class="games-list__title">Upcoming Games</h2>
 			<div class="games-list__content">
@@ -13,7 +11,7 @@
 			</div>
 		</div>
 
-		<!-- <div class="games-list">
+		<div class="games-list">
 			<h2 class="games-list__title">New Games</h2>
 			<div class="games-list__content">
 				<GameCard
@@ -33,7 +31,7 @@
 					:game="game"
 				/>
 			</div>
-		</div> -->
+		</div>
 	</div>
 </template>
 
@@ -61,7 +59,7 @@ export default {
 
 <style lang="scss">
 	.games-list {
-		padding: 2rem;
+		padding: 0 1rem 2rem 1rem;
 		min-height: 80vh;
 		&__title {
 			padding: 2rem 0;

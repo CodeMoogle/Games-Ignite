@@ -19,7 +19,7 @@
 				</div>
 
 				<span class="header__release">
-					{{ this.gameDetails.released }}
+					{{ releaseDate || "TBA" }}
 				</span>
 
 				<p class="header__rating">
@@ -68,6 +68,10 @@ export default {
 		...mapGetters(["gameDetails"]),
 		detailsBackground() {
 			return getSmallerImg(this.gameDetails.background_image, 1280);
+		},
+		releaseDate() {
+			if (this.gameDetails.released)
+				return this.gameDetails.released.split("-").reverse().join("-");
 		},
 	},
 	methods: {
@@ -131,7 +135,6 @@ export default {
 						&__parent-platforms {
 							display: flex;
 							align-items: center;
-							// font-size: 2rem;
 							margin: 1rem 0;
 							& i {
 								margin-right: 0.5rem;
@@ -165,6 +168,20 @@ export default {
 				}
 			}
 		}
+
+		@media screen and (max-width: 60rem) {
+			& {
+				& h2 {
+					font-size: 2rem;
+				}
+
+				.info {
+					&__header {
+						height: 400px;
+					}
+				}
+			}
+		}
 	}
 
 	.platforms {
@@ -174,7 +191,7 @@ export default {
 		align-items: center;
 		margin-bottom: 2rem;
 		&__item {
-			width: 150px;
+			min-width: 160px;
 			text-align: center;
 			padding: 5px;
 			background-color: #fff;
