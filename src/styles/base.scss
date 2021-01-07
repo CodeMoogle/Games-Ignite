@@ -9,7 +9,11 @@
 	--text-accent: #000000;
 	--text-themed: #ff7a00;
 
+	--color-green: #66cc33;
+
 	--hover-primary: #ffffff;
+
+	--header-height: 50px;
 }
 
 * {
@@ -44,10 +48,12 @@ h3 {
 
 a {
 	text-decoration: none;
+	color: var(--text-primary);
 }
 
 .text_themed {
 	background: -webkit-linear-gradient(#ffdc99, #ff7a00);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }

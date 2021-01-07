@@ -23,7 +23,7 @@
 				</span>
 
 				<p class="header__rating">
-					Rating: {{ this.gameDetails.rating || `N/A` }}
+					{{ this.gameDetails.rating || `N/R` }}
 				</p>
 			</div>
 
@@ -32,7 +32,6 @@
 				<p>{{ this.gameDetails.description_raw }}</p>
 			</div>
 
-			<!-- TODO: platfroms component -->
 			<h3>Platforms</h3>
 			<div class="platforms">
 				<span
@@ -150,6 +149,12 @@ export default {
 						}
 						&__rating {
 							margin: 1rem 0;
+							color: var(--color-green);
+							border: 2px solid var(--color-green);
+							padding: 5px 15px;
+							border-radius: 4px;
+							font-weight: bold;
+							font-size: 1rem;
 						}
 					}
 				}
@@ -178,6 +183,11 @@ export default {
 				.info {
 					&__header {
 						height: 400px;
+						.header {
+							&__release {
+								font-size: 1rem;
+							}
+						}
 					}
 				}
 			}

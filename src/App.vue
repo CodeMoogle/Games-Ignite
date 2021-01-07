@@ -20,7 +20,7 @@ export default {
 <style lang="scss">
 	.app {
 		&__content {
-			margin-top: 3rem;
+			margin-top: var(--header-height);
 		}
 	}
 </style>
