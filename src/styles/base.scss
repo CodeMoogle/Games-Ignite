@@ -22,16 +22,6 @@
 	box-sizing: border-box;
 }
 
-html {
-	&::-webkit-scrollbar {
-		width: 0.2rem;
-		background-color: var(--bg-secondary);
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: #a9a9a9;
-	}
-}
-
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: var(--text-primary);
@@ -40,10 +30,6 @@ body {
 
 h2 {
 	font-size: 1.8rem;
-}
-
-h3 {
-	padding: 0.5rem 0;
 }
 
 a {

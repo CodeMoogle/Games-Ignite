@@ -6,11 +6,12 @@
 				backgroundImage: `linear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)), linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.5)), url(${detailsBackground})`,
 			}"
 		></div>
-		<div class="game-details__info">
-			<div class="info__header">
-				<h2 class="header-title">{{ this.gameDetails.name }}</h2>
 
-				<div class="header__parent-platforms">
+		<div class="game-details__content">
+			<div class="game-details__header">
+				<h2 class="game-details__title">{{ this.gameDetails.name }}</h2>
+
+				<div class="game-details__parent-platforms">
 					<i
 						v-for="platform in this.gameDetails.parent_platforms"
 						:key="platform.id"
@@ -18,34 +19,34 @@
 					></i>
 				</div>
 
-				<span class="header__release">
-					{{ releaseDate || "TBA" }}
-				</span>
+				<p class="game-details__release">Release: {{ releaseDate || "TBA" }}</p>
 
-				<p class="header__rating">
-					{{ this.gameDetails.rating || `N/R` }}
+				<p class="game-details__rating">
+					RAWG Rating: {{ this.gameDetails.rating || `Not rated` }}
 				</p>
 			</div>
 
-			<h3>About</h3>
-			<div class="info__description">
+			<section class="game-details__description">
+				<h3>About</h3>
 				<p>{{ this.gameDetails.description_raw }}</p>
-			</div>
+			</section>
 
-			<h3>Platforms</h3>
-			<div class="platforms">
-				<span
-					class="platforms__item"
-					v-for="platform in this.gameDetails.platforms"
-					:key="platform.id"
-				>
-					<i :class="`${getIcon(platform.platform.slug)}`"></i>
-					<span>{{ platform.platform.name }}</span>
-				</span>
-			</div>
+			<section class="game-details__platforms">
+				<h3>Platforms</h3>
+				<div class="platforms">
+					<span
+						class="platforms__item"
+						v-for="platform in this.gameDetails.platforms"
+						:key="platform.id"
+					>
+						<i :class="`${getIcon(platform.platform.slug)}`"></i>
+						<span>{{ platform.platform.name }}</span>
+					</span>
+				</div>
+			</section>
 
 			<h3>Screenshots</h3>
-			<div class="info__gallery">
+			<div class="game-details__gallery">
 				<img
 					v-for="screenshot in this.gameDetails.screenshots"
 					:src="getCropImg(screenshot.image)"
@@ -83,115 +84,70 @@ export default {
 <style lang="scss">
 	.game-details {
 		position: relative;
-		width: 100%;
-		min-height: 100vh;
-		& h2 {
-			font-size: 4rem;
-		}
 		& h3 {
-			font-size: 2rem;
+			font-size: 1.6rem;
+			background: -webkit-linear-gradient(#ffdc99, #ff7a00);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
 			padding: 0;
 			margin-bottom: 1rem;
 		}
+		& section {
+			margin-bottom: 2rem;
+		}
+	}
+	.game-details__art {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 400px;
+		background-color: transparent;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: top;
+	}
 
-		&__art {
-			position: absolute;
-			top: 0;
-			left: 0;
+	.game-details__content {
+		position: relative;
+		color: var(--text-primary);
+		padding: 1rem;
+		z-index: 10;
+		& img {
+			display: block;
 			width: 100%;
-			height: 500px;
-			background-color: transparent;
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: top center;
-			z-index: 1;
 		}
+	}
 
-		&__info {
-			position: relative;
-			width: 100%;
-			min-height: 100vh;
-			color: var(--text-primary);
-			padding: 1rem;
-			z-index: 10;
-			& img {
-				display: block;
-				width: 100%;
-			}
+	.game-details__header {
+		min-height: 400px;
+	}
 
-			.info {
-				&__header {
-					width: 100%;
-					height: 500px;
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					font-size: 1.3rem;
-					.header {
-						&-title {
-							margin: 1rem 0;
-						}
-						&__parent-platforms {
-							display: flex;
-							align-items: center;
-							margin: 1rem 0;
-							& i {
-								margin-right: 0.5rem;
-							}
-						}
-						&__release {
-							padding: 5px 10px;
-							background-color: #fff;
-							color: var(--text-accent);
-							border-radius: 0.5rem;
-							font-weight: bold;
-							margin: 1rem 0;
-						}
-						&__rating {
-							margin: 1rem 0;
-							color: var(--color-green);
-							border: 2px solid var(--color-green);
-							padding: 5px 15px;
-							border-radius: 4px;
-							font-weight: bold;
-							font-size: 1rem;
-						}
-					}
-				}
+	.game-details__title {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
 
-				&__description {
-					font-size: 1.1rem;
-					line-height: 1.5;
-					margin-bottom: 2rem;
-				}
-
-				&__gallery {
-					display: grid;
-					grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-					grid-column-gap: 1rem;
-					grid-row-gap: 1rem;
-				}
-			}
+	.game-details__parent-platforms {
+		display: flex;
+		align-items: center;
+		margin-bottom: 2rem;
+		& i {
+			margin-right: 0.5rem;
 		}
+	}
 
-		@media screen and (max-width: 60rem) {
-			& {
-				& h2 {
-					font-size: 2rem;
-				}
+	.game-details__release {
+		margin-bottom: 2rem;
+	}
 
-				.info {
-					&__header {
-						height: 400px;
-						.header {
-							&__release {
-								font-size: 1rem;
-							}
-						}
-					}
-				}
-			}
-		}
+	.game-details__rating {
+		margin-bottom: 2rem;
+	}
+
+	.game-details__description {
+		line-height: 1.5;
 	}
 
 	.platforms {
@@ -199,7 +155,6 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		margin-bottom: 2rem;
 		&__item {
 			min-width: 160px;
 			text-align: center;
@@ -217,4 +172,62 @@ export default {
 			}
 		}
 	}
+
+	.game-details__gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		grid-column-gap: 1rem;
+		grid-row-gap: 1rem;
+	}
+
+	@media screen and (min-width: 60rem) {
+		.game-details__art {
+			height: 500px;
+		}
+		.game-details__header {
+			min-height: 500px;
+		}
+		.game-details__title {
+			font-size: 3rem;
+		}
+		.game-details__description {
+			font-size: 1.1rem;
+		}
+	}
+
+	// 					&__release {
+	// 						padding: 5px 10px;
+	// 						background-color: #fff;
+	// 						color: var(--text-accent);
+	// 						border-radius: 0.5rem;
+	// 						font-weight: bold;
+	// 						margin: 1rem 0;
+	// 					}
+	// 					&__rating {
+	// 						margin: 1rem 0;
+	// 						color: var(--color-green);
+	// 						border: 2px solid var(--color-green);
+	// 						padding: 5px 15px;
+	// 						border-radius: 4px;
+	// 						font-weight: bold;
+	// 						font-size: 1rem;
+	// 					}
+	// 				}
+	// 			}
+
+	// 			&__description {
+	// 				font-size: 1.1rem;
+	// 				line-height: 1.5;
+	// 				margin-bottom: 2rem;
+	// 			}
+
+	// 			&__gallery {
+	// 				display: grid;
+	// 				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	// 				grid-column-gap: 1rem;
+	// 				grid-row-gap: 1rem;
+	// 			}
+	// 		}
+	// 	}
+	// }
 </style>

@@ -1,0 +1,10 @@
+// Scrollbar
+html {
+	&::-webkit-scrollbar {
+		width: 0.2rem;
+		background-color: var(--bg-secondary);
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #a9a9a9;
+	}
+}
