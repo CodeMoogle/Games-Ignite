@@ -1,4 +1,4 @@
-// Scrollbar
+/* Scrollbar */
 html {
 	&::-webkit-scrollbar {
 		width: 0.2rem;
@@ -7,4 +7,29 @@ html {
 	&::-webkit-scrollbar-thumb {
 		background-color: #a9a9a9;
 	}
+}
+
+/* Splide slider styles */
+.splide__arrow--prev {
+	left: 0;
+}
+.splide__arrow--next {
+	right: 0;
+}
+.splide__arrow {
+	height: 100%;
+}
+.splide__arrow svg {
+	fill: var(--color-themed);
+}
+.splide__arrow:hover {
+	& svg {
+		fill: #ffdc99;
+	}
+}
+.splide__pagination {
+	bottom: -2em;
+}
+.splide__pagination__page.is-active {
+	background-color: #ff7a00;
 }

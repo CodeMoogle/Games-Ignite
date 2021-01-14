@@ -2,9 +2,9 @@ import { getCurrentDate, getYear } from '@/utils/dates'
 
 // urls
 const BASE_URL = 'https://api.rawg.io/api/'
-const POPULAR_GAMES_URL = `games?dates=${getCurrentDate()}&ordering=-rating&page_size=10`
-const NEW_GAMES_URL = `games?dates=${getYear('-')},${getCurrentDate()}&ordering=-released&page_size=10`
-const UPCOMING_GAMES_URL = `games?dates=${getCurrentDate()},${getYear('+')}&ordering=-added&page_size=10`
+const POPULAR_GAMES_URL = `games?dates=${getCurrentDate()}&ordering=-rating&page_size=12`
+const NEW_GAMES_URL = `games?dates=${getYear('-')},${getCurrentDate()}&ordering=-released&page_size=12`
+const UPCOMING_GAMES_URL = `games?dates=${getCurrentDate()},${getYear('+')}&ordering=-added&page_size=12`
 
 export const games_url = {
 	popular: () => `${BASE_URL}${POPULAR_GAMES_URL}`,

@@ -73,6 +73,9 @@ export default {
 			margin: 0 0.3rem;
 		}
 	}
+	.game-card__title {
+		margin: 1rem 0;
+	}
 	.game-card__release {
 		color: #696969;
 		font-size: 0.85rem;

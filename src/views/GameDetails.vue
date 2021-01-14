@@ -176,8 +176,8 @@ export default {
 	.game-details__gallery {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		grid-column-gap: 1rem;
-		grid-row-gap: 1rem;
+		column-gap: 1rem;
+		row-gap: 1rem;
 	}
 
 	@media screen and (min-width: 60rem) {
@@ -194,40 +194,4 @@ export default {
 			font-size: 1.1rem;
 		}
 	}
-
-	// 					&__release {
-	// 						padding: 5px 10px;
-	// 						background-color: #fff;
-	// 						color: var(--text-accent);
-	// 						border-radius: 0.5rem;
-	// 						font-weight: bold;
-	// 						margin: 1rem 0;
-	// 					}
-	// 					&__rating {
-	// 						margin: 1rem 0;
-	// 						color: var(--color-green);
-	// 						border: 2px solid var(--color-green);
-	// 						padding: 5px 15px;
-	// 						border-radius: 4px;
-	// 						font-weight: bold;
-	// 						font-size: 1rem;
-	// 					}
-	// 				}
-	// 			}
-
-	// 			&__description {
-	// 				font-size: 1.1rem;
-	// 				line-height: 1.5;
-	// 				margin-bottom: 2rem;
-	// 			}
-
-	// 			&__gallery {
-	// 				display: grid;
-	// 				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	// 				grid-column-gap: 1rem;
-	// 				grid-row-gap: 1rem;
-	// 			}
-	// 		}
-	// 	}
-	// }
 </style>
