@@ -11,8 +11,6 @@
 
 <script>
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
-import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
-
 import GameCard from "@/components/Game/GameCard.vue";
 
 export default {

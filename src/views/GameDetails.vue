@@ -10,7 +10,7 @@
 
 		<section class="game-details__description">
 			<h3>About</h3>
-			<p>{{ this.gameDetails.description_raw }}</p>
+			<p v-html="this.gameDetails.description"></p>
 		</section>
 
 		<section class="game-details__platforms">
@@ -27,17 +27,8 @@
 			</div>
 		</section>
 
-		<h3>Screenshots</h3>
-		<div class="game-details__gallery">
-			<img
-				v-for="screenshot in this.gameDetails.screenshots"
-				:src="getCropImg(screenshot.image)"
-				alt="screenshot"
-				:key="screenshot.id"
-			/>
-		</div>
+		<DetailsGallery :screenshots="this.gameDetails.screenshots" />
 	</div>
-	<!-- </div> -->
 </template>
 
 <script>
@@ -45,11 +36,13 @@ import { getSmallerImg, getPlatformImg } from "@/utils/game.js";
 import { mapGetters } from "vuex";
 
 import DetailsHeader from "@/components/GameDetails/DetailsHeader.vue";
+import DetailsGallery from "@/components/GameDetails/DetailsGallery.vue";
 
 export default {
 	name: "GameDetails",
 	components: {
 		DetailsHeader,
+		DetailsGallery,
 	},
 	computed: {
 		...mapGetters(["gameDetails"]),
@@ -64,7 +57,7 @@ export default {
 <style lang="scss">
 	.game-details {
 		color: var(--text-primary);
-		padding: 1rem;
+		padding: 1rem 0.5rem;
 		& h3 {
 			font-size: 1.6rem;
 			background: -webkit-linear-gradient(#ffdc99, #ff7a00);
@@ -75,11 +68,12 @@ export default {
 			margin-bottom: 1rem;
 		}
 		& section {
-			margin-bottom: 2rem;
+			margin-bottom: 3rem;
 		}
 	}
 
 	.game-details__description {
+		white-space: pre-line;
 		line-height: 1.5;
 	}
 
@@ -103,17 +97,6 @@ export default {
 				font-size: 1.1rem;
 				vertical-align: middle;
 			}
-		}
-	}
-
-	.game-details__gallery {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		column-gap: 1rem;
-		row-gap: 1rem;
-		& img {
-			display: block;
-			width: 100%;
 		}
 	}
 

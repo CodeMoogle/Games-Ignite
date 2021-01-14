@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
+
 import Header from "@/components/Header.vue";
 
 export default {
