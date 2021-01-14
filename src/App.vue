@@ -20,6 +20,7 @@ export default {
 <style lang="scss">
 	.app {
 		&__content {
+			position: relative;
 			margin-top: var(--header-height);
 		}
 	}
