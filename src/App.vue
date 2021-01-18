@@ -24,6 +24,7 @@ export default {
 		&__content {
 			position: relative;
 			margin-top: var(--header-height);
+			margin-bottom: 1rem;
 		}
 	}
 </style>

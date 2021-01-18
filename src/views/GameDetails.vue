@@ -68,7 +68,7 @@ export default {
 			margin-bottom: 1rem;
 		}
 		& section {
-			margin-bottom: 3rem;
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -101,15 +101,6 @@ export default {
 	}
 
 	@media screen and (min-width: 60rem) {
-		.game-details__art {
-			height: 500px;
-		}
-		.game-details__header {
-			min-height: 500px;
-		}
-		.game-details__title {
-			font-size: 3rem;
-		}
 		.game-details__description {
 			font-size: 1.1rem;
 		}

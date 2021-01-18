@@ -68,7 +68,6 @@ export default {
 <style lang="scss">
 	.details__header {
 		position: relative;
-		min-height: 400px;
 	}
 	.header__art {
 		position: absolute;
@@ -95,6 +94,7 @@ export default {
 		display: flex;
 		align-items: center;
 		margin-bottom: 2rem;
+		font-size: 1.3rem;
 		& i {
 			margin-right: 0.5rem;
 		}
@@ -104,5 +104,17 @@ export default {
 	}
 	.header__rating {
 		margin-bottom: 2rem;
+	}
+
+	@media screen and (min-width: 60rem) {
+		.details-header {
+			min-height: 500px;
+		}
+		.header__art {
+			height: 500px;
+		}
+		.header__title {
+			font-size: 3rem;
+		}
 	}
 </style>
