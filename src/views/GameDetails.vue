@@ -9,12 +9,12 @@
 		/>
 
 		<section class="game-details__description">
-			<h3>About</h3>
+			<h2>About</h2>
 			<p v-html="this.gameDetails.description"></p>
 		</section>
 
 		<section class="game-details__platforms">
-			<h3>Platforms</h3>
+			<h2>Platforms</h2>
 			<div class="platforms">
 				<span
 					class="platforms__item"
@@ -58,7 +58,7 @@ export default {
 	.game-details {
 		color: var(--text-primary);
 		padding: 1rem 0.5rem;
-		& h3 {
+		& h2 {
 			font-size: 1.6rem;
 			background: -webkit-linear-gradient(#ffdc99, #ff7a00);
 			background-clip: text;

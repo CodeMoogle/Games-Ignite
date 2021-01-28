@@ -1,6 +1,6 @@
 <template>
 	<section class="details-gallery">
-		<h3>Screenshots ({{ screenshotCount }})</h3>
+		<h2>Screenshots ({{ screenshotCount }})</h2>
 		<div class="details-gallery__screenshots">
 			<splide :options="splideOptions" :slides="screenshots">
 				<splide-slide v-for="screenshot in screenshots" :key="screenshot.id">

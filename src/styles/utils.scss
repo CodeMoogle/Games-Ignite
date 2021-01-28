@@ -11,13 +11,18 @@ html {
 
 /* Splide slider styles */
 .splide__arrow--prev {
-	left: 0;
+	left: -8px;
 }
 .splide__arrow--next {
-	right: 0;
+	right: -8px;
 }
 .splide__arrow {
 	height: 100%;
+	background-color: rgba(0, 0, 0, 0.1);
+	transition: background-color 0.2s ease;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.6);
+	}
 }
 .splide__arrow svg {
 	fill: var(--color-themed);

@@ -8,7 +8,7 @@
 		></div>
 
 		<div class="header__content">
-			<h2 class="header__title">{{ title }}</h2>
+			<h1 class="header__title">{{ title }}</h1>
 
 			<div class="header__platforms">
 				<i
