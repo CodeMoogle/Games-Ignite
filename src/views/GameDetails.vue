@@ -8,10 +8,7 @@
 			:rating="this.gameDetails.rating"
 		/>
 
-		<section class="game-details__description">
-			<h2>About</h2>
-			<p v-html="this.gameDetails.description"></p>
-		</section>
+		<DetailsDescription :descr="this.gameDetails.description" />
 
 		<section class="game-details__platforms">
 			<h2>Platforms</h2>
@@ -37,12 +34,14 @@ import { mapGetters } from "vuex";
 
 import DetailsHeader from "@/components/GameDetails/DetailsHeader.vue";
 import DetailsGallery from "@/components/GameDetails/DetailsGallery.vue";
+import DetailsDescription from "@/components/GameDetails/DetailsDescription";
 
 export default {
 	name: "GameDetails",
 	components: {
 		DetailsHeader,
 		DetailsGallery,
+		DetailsDescription,
 	},
 	computed: {
 		...mapGetters(["gameDetails"]),
@@ -70,11 +69,6 @@ export default {
 		& section {
 			margin-bottom: 2rem;
 		}
-	}
-
-	.game-details__description {
-		white-space: pre-line;
-		line-height: 1.5;
 	}
 
 	.platforms {
