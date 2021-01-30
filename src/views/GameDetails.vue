@@ -10,19 +10,7 @@
 
 		<DetailsDescription :descr="this.gameDetails.description" />
 
-		<section class="game-details__platforms">
-			<h2>Platforms</h2>
-			<div class="platforms">
-				<span
-					class="platforms__item"
-					v-for="platform in this.gameDetails.platforms"
-					:key="platform.id"
-				>
-					<i :class="`${getIcon(platform.platform.slug)}`"></i>
-					<span>{{ platform.platform.name }}</span>
-				</span>
-			</div>
-		</section>
+		<DetailsPlatforms :icons="gameDetails.platforms" />
 
 		<DetailsGallery :screenshots="this.gameDetails.screenshots" />
 	</div>
@@ -30,11 +18,13 @@
 
 <script>
 import { getSmallerImg, getPlatformImg } from "@/utils/game.js";
+
 import { mapGetters } from "vuex";
 
 import DetailsHeader from "@/components/GameDetails/DetailsHeader.vue";
-import DetailsGallery from "@/components/GameDetails/DetailsGallery.vue";
 import DetailsDescription from "@/components/GameDetails/DetailsDescription";
+import DetailsPlatforms from "@/components/GameDetails/DetailsPlatforms.vue";
+import DetailsGallery from "@/components/GameDetails/DetailsGallery.vue";
 
 export default {
 	name: "GameDetails",
@@ -42,6 +32,7 @@ export default {
 		DetailsHeader,
 		DetailsGallery,
 		DetailsDescription,
+		DetailsPlatforms,
 	},
 	computed: {
 		...mapGetters(["gameDetails"]),
@@ -68,35 +59,6 @@ export default {
 		}
 		& section {
 			margin-bottom: 2rem;
-		}
-	}
-
-	.platforms {
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		&__item {
-			min-width: 160px;
-			text-align: center;
-			padding: 5px;
-			background-color: #fff;
-			color: var(--text-accent);
-			border-radius: 0.5rem;
-			font-weight: bold;
-			font-size: 0.9rem;
-			margin: 0.5rem 0.5rem 0.5rem 0;
-			& i {
-				margin-right: 0.5rem;
-				font-size: 1.1rem;
-				vertical-align: middle;
-			}
-		}
-	}
-
-	@media screen and (min-width: 60rem) {
-		.game-details__description {
-			font-size: 1.1rem;
 		}
 	}
 </style>

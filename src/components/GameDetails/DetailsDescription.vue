@@ -24,4 +24,10 @@ export default {
 		white-space: pre-line;
 		line-height: 1.5;
 	}
+
+	@media screen and (min-width: 60rem) {
+		.details__description {
+			font-size: 1.1rem;
+		}
+	}
 </style>
