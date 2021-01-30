@@ -1,7 +1,14 @@
 <template>
 	<router-link :to="{ path: `/games/${game.id}` }" class="game-card">
 		<div class="game-card__img">
-			<img :src="getPoster(game.background_image)" :alt="game.name" />
+			<img
+				:src="getPoster(game.background_image)"
+				:alt="game.name"
+				v-if="game.background_image"
+			/>
+			<div class="card-img__placeholder" v-else>
+				<i class="fas fa-image"></i>
+			</div>
 		</div>
 
 		<div class="game-card__content">
@@ -51,6 +58,7 @@ export default {
 		overflow: hidden;
 		cursor: pointer;
 	}
+
 	.game-card__img {
 		overflow: hidden;
 		& img {
@@ -60,6 +68,19 @@ export default {
 			object-fit: cover;
 		}
 	}
+
+	.card-img__placeholder {
+		width: 100%;
+		height: 40vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #808080;
+		& i {
+			font-size: 90px;
+		}
+	}
+
 	.game-card__content {
 		height: 100%;
 		padding: 0.5rem 1rem;
@@ -68,14 +89,17 @@ export default {
 		color: var(--text-primary);
 		padding: 1rem;
 	}
+
 	.game-card__platforms {
 		& i {
 			margin: 0 0.3rem;
 		}
 	}
+
 	.game-card__title {
 		margin: 1rem 0;
 	}
+
 	.game-card__release {
 		color: #696969;
 		font-size: 0.85rem;
