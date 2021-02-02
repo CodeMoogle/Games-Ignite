@@ -8,9 +8,9 @@
 		></div>
 
 		<div class="header__content">
-			<h1 class="header__title">{{ title }}</h1>
+			<h1 class="header__title">{{ title || "Title not provided" }}</h1>
 
-			<div class="header__platforms">
+			<div class="header__platforms" v-if="platforms">
 				<i
 					v-for="platform in platforms"
 					:key="platform.id"
@@ -33,7 +33,6 @@ export default {
 	props: {
 		backgroundImage: {
 			type: String,
-			required: true,
 		},
 		title: {
 			type: String,
@@ -41,7 +40,6 @@ export default {
 		},
 		platforms: {
 			type: Array,
-			required: true,
 		},
 		released: {
 			required: true,
@@ -53,7 +51,9 @@ export default {
 	},
 	computed: {
 		detailsBackground() {
-			return getSmallerImg(this.backgroundImage, 1280);
+			if (this.backgroundImage) {
+				return getSmallerImg(this.backgroundImage, 1280);
+			}
 		},
 		releaseDate() {
 			if (this.released) return this.released.split("-").reverse().join("-");

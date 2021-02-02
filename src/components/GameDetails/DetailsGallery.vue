@@ -1,12 +1,16 @@
 <template>
 	<section class="details-gallery">
 		<h2>Screenshots ({{ screenshotCount }})</h2>
-		<div class="details-gallery__screenshots">
+		<div class="details-gallery__screenshots" v-if="screenshots.length">
 			<splide :options="splideOptions" :slides="screenshots">
 				<splide-slide v-for="screenshot in screenshots" :key="screenshot.id">
 					<img :data-splide-lazy="getImg(screenshot.image)" alt="screenshot" />
 				</splide-slide>
 			</splide>
+		</div>
+
+		<div class="details-gallery__placeholder" v-else>
+			<p>No screenshots provided</p>
 		</div>
 	</section>
 </template>
@@ -71,5 +75,10 @@ export default {
 			display: block;
 			width: 100%;
 		}
+	}
+
+	.details-gallery__placeholder {
+		font-weight: bold;
+		font-size: 1.1rem;
 	}
 </style>
