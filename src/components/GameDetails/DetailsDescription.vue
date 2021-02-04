@@ -1,7 +1,19 @@
 <template>
 	<section class="details__description">
 		<h2>About</h2>
-		<p v-if="descr" v-html="descr"></p>
+		<div class="description__text" v-if="descr">
+			<span v-if="!readMoreActivated">{{ descr_raw.slice(0, 200) }}</span>
+
+			<span
+				class="text--read-more text_themed"
+				v-if="!readMoreActivated"
+				@click="activateReadMore"
+			>
+				Read more...
+			</span>
+
+			<p v-if="readMoreActivated" v-html="descr"></p>
+		</div>
 
 		<p v-else>No description provided</p>
 	</section>
@@ -13,7 +25,19 @@ export default {
 	props: {
 		descr: {
 			type: String,
-			required: true,
+		},
+		descr_raw: {
+			type: String,
+		},
+	},
+	data() {
+		return {
+			readMoreActivated: false,
+		};
+	},
+	methods: {
+		activateReadMore() {
+			this.readMoreActivated = true;
 		},
 	},
 };

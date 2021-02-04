@@ -8,7 +8,10 @@
 			:rating="this.gameDetails.rating"
 		/>
 
-		<DetailsDescription :descr="this.gameDetails.description" />
+		<DetailsDescription
+			:descr="this.gameDetails.description"
+			:descr_raw="this.gameDetails.description_raw"
+		/>
 
 		<DetailsPlatforms :icons="gameDetails.platforms" />
 

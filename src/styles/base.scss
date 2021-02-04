@@ -9,7 +9,6 @@
 	--text-accent: #000000;
 
 	--color-themed: #ff7a00;
-
 	--color-green: #66cc33;
 
 	--hover-primary: #ffffff;
@@ -38,9 +37,15 @@ a {
 	color: var(--text-primary);
 }
 
+// text
 .text_themed {
 	background: -webkit-linear-gradient(#ffdc99, #ff7a00);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+.text--read-more {
+	font-weight: bold;
+	cursor: pointer;
 }
