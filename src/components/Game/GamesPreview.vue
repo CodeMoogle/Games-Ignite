@@ -1,16 +1,25 @@
 <template>
 	<div class="games-preview">
 		<h2 class="games-preview__title">{{ title }}</h2>
-		<splide :options="splideOptions" :slides="games">
-			<splide-slide v-for="game in games" :key="game.id">
-				<GameCard :game="game" />
-			</splide-slide>
-		</splide>
+
+		<div class="games-preview__slider" v-if="games.length">
+			<splide :options="splideOptions" :slides="games">
+				<splide-slide v-for="game in games" :key="game.id">
+					<GameCard :game="game" />
+				</splide-slide>
+			</splide>
+		</div>
+
+		<div class="inner-loader" v-else>
+			<Loader />
+		</div>
 	</div>
 </template>
 
 <script>
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
+
+import Loader from "@/components/Utils/Loader.vue";
 import GameCard from "@/components/Game/GameCard.vue";
 
 export default {
@@ -19,6 +28,7 @@ export default {
 		Splide,
 		SplideSlide,
 		GameCard,
+		Loader,
 	},
 	props: {
 		title: {
@@ -39,7 +49,6 @@ export default {
 				rewind: true,
 				perPage: 4,
 				gap: "1rem",
-				// focus: "center",
 				trimSpace: true,
 				breakpoints: {
 					1124: {
@@ -64,6 +73,10 @@ export default {
 		min-height: 50vh;
 		&__title {
 			padding: 2rem 0;
+		}
+
+		& .inner-loader {
+			min-height: 50vh;
 		}
 	}
 </style>

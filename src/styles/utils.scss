@@ -9,6 +9,15 @@ html {
 	}
 }
 
+// loaders
+.inner-loader {
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 /* Splide slider styles */
 .splide__arrow--prev {
 	left: -8px;
