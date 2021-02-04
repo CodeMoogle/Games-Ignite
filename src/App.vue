@@ -2,6 +2,7 @@
 	<div id="app" class="app">
 		<Header />
 		<div class="app__content">
+			<PageLoader />
 			<router-view />
 		</div>
 	</div>
@@ -11,10 +12,12 @@
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
 import Header from "@/components/Header.vue";
+import PageLoader from "@/components/Utils/PageLoader.vue";
 
 export default {
 	components: {
 		Header,
+		PageLoader,
 	},
 };
 </script>

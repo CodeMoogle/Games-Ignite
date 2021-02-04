@@ -13,6 +13,7 @@ export default new Vuex.Store({
 		upcomingGames: [],
 		searchedGames: [],
 		gameDetails: null,
+		pageLoading: false,
 	},
 	mutations: {
 		fetchGames(state, payload) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
 		},
 		fetchGameDetails(state, payload) {
 			state.gameDetails = payload
+		},
+		setPageLoading(state, payload) {
+			state.pageLoading = payload
 		},
 	},
 	actions: {
@@ -33,14 +37,17 @@ export default new Vuex.Store({
 			commit('fetchGames', { newGames, popularGames, upcomingGames })
 		},
 		async fetchGameDetails({ commit }, id) {
+			commit('setPageLoading', true)
 			const details = await axios.get(games_url.gameDetails(id)).then(res => res.data)
 			const screenshots = await axios.get(games_url.gameScreenshots(id)).then(res => res.data.results)
 
+			commit('setPageLoading', false)
 			commit('fetchGameDetails', { ...details, screenshots })
 		},
 	},
 	getters: {
 		getAllGames: state => state,
 		gameDetails: state => state.gameDetails,
+		pageIsLoading: state => state.pageLoading,
 	},
 })
