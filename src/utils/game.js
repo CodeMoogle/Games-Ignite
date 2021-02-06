@@ -16,7 +16,7 @@ export const getPlatformImg = platform => {
 		platform === 'playstation5'
 	) {
 		return 'fab fa-playstation'
-	} else if (platform === 'xbox' || platform === 'xbox-one' || platform === 'xbox-series-x') {
+	} else if (platform === 'xbox' || platform === 'xbox360' || platform === 'xbox-one' || platform === 'xbox-series-x') {
 		return 'fab fa-xbox'
 	} else if (platform === 'pc') {
 		return 'fab fa-windows'
