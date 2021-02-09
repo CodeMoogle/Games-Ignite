@@ -25,7 +25,7 @@ export default {
 		background-color: var(--bg-secondary);
 		color: var(--text-primary);
 		padding: 0.5rem;
-		z-index: 9999;
+		z-index: 100;
 		font-size: 1.5rem;
 
 		&__logo {

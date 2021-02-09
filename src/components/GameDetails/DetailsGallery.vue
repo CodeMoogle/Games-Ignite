@@ -4,7 +4,11 @@
 		<div class="details-gallery__screenshots" v-if="screenshots.length">
 			<splide :options="splideOptions" :slides="screenshots">
 				<splide-slide v-for="screenshot in screenshots" :key="screenshot.id">
-					<img :data-splide-lazy="getImg(screenshot.image)" alt="screenshot" />
+					<img
+						:data-splide-lazy="getImg(screenshot.image)"
+						alt="screenshot"
+						@click="toggleMedia"
+					/>
 				</splide-slide>
 			</splide>
 		</div>
@@ -12,25 +16,29 @@
 		<div class="details-gallery__placeholder" v-else>
 			<p>No screenshots provided</p>
 		</div>
+
+		<MediaBox
+			:screenshots="screenshots"
+			:toggler="openMedia"
+			@toggle-media="toggleMedia"
+		/>
 	</section>
 </template>
 
 <script>
 import { getSmallerImg } from "@/utils/game.js";
-
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import MediaBox from "@/components/Utils/MediaBox";
 
 export default {
 	name: "DetailsGallery",
 	components: {
 		Splide,
 		SplideSlide,
+		MediaBox,
 	},
 	props: {
-		screenshots: {
-			type: Array,
-			required: true,
-		},
+		screenshots: Array,
 	},
 	computed: {
 		screenshotCount() {
@@ -39,9 +47,13 @@ export default {
 	},
 	methods: {
 		getImg: (path, size) => getSmallerImg(path, size),
+		toggleMedia() {
+			this.openMedia = !this.openMedia;
+		},
 	},
 	data() {
 		return {
+			openMedia: false,
 			splideOptions: {
 				rewind: true,
 				perPage: 4,
@@ -67,13 +79,10 @@ export default {
 
 <style lang="scss">
 	.details-gallery__screenshots {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		column-gap: 1rem;
-		row-gap: 1rem;
 		& img {
 			display: block;
 			width: 100%;
+			cursor: pointer;
 		}
 	}
 
