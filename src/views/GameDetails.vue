@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import { getSmallerImg, getPlatformImg } from "@/utils/game.js";
-
 import { mapGetters } from "vuex";
 
 import DetailsHeader from "@/components/GameDetails/DetailsHeader.vue";
@@ -39,10 +37,6 @@ export default {
 	},
 	computed: {
 		...mapGetters(["gameDetails"]),
-	},
-	methods: {
-		getCropImg: (path, size) => getSmallerImg(path, size),
-		getIcon: (platform) => getPlatformImg(platform),
 	},
 };
 </script>
